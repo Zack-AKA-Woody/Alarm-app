@@ -9,20 +9,14 @@ from playsound import playsound
 #VARIABLES
 alarm_HH = 00
 alarm_MM = 00
+runtime = int(alarm_MM) + (1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or 10 or 11 or 12 or 13 or 14 or 15 or 16 or 17 or 18 or 19 or 20)
 
 #ALARM SOUND
 def loopSound():
     while True:
          now = time.localtime()
-         if now.tm_hour == int(alarm_HH) and now.tm_min == int(alarm_MM):
+         if now.tm_hour == int(alarm_HH) and now.tm_min == int(alarm_MM)or int(alarm_MM) + runtime:
             playsound("C:/Users/Zack/Downloads/Siren_Noise.mp3", block=True)
-
-#KILL ALARM 
-def stop_alarm():
-        while True:
-            loopThread = threading.Thread(target=loopSound, name='Alarm Sound')
-            loopThread.daemon = False
-            loopThread.start()
             
 #ACTUAL ALARM
 def alarm_function():
@@ -31,7 +25,7 @@ def alarm_function():
      global alarm_MM
      while True:
         now = time.localtime()
-        if now.tm_hour == int(alarm_HH) and now.tm_min == int(alarm_MM):
+        if now.tm_hour == int(alarm_HH) and now.tm_min == int(alarm_MM) or int(alarm_MM) + runtime:
              loopThread = threading.Thread(target=loopSound, name='Alarm Sound')
              loopThread.daemon = True
              loopThread.start()
@@ -40,11 +34,12 @@ def alarm_function():
              print ("Scan QR code to disable the alarm --> testing code: Type Goodmorning")
              print ("---------------")
              answer = input("Enter Answer: ")
+             while answer != "Goodmorning":
+                 answer = input("Enter Answer: ")
              if answer == "Goodmorning":
-                 print ("---------------")
-                 print ("Alarm Disabled")
-                 break
-             loopThread.join(stop_alarm)
+                print ("---------------")
+                print ("Alarm Disabled")
+                break
         else:
             pass
              
