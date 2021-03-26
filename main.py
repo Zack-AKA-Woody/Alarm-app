@@ -20,9 +20,6 @@ def loopSound():
             
 #ACTUAL ALARM
 def alarm_function():
-     #GLOBALS
-     global alarm_HH
-     global alarm_MM
      while True:
         now = time.localtime()
         if now.tm_hour == int(alarm_HH) and now.tm_min == int(alarm_MM) or int(alarm_MM) + runtime:
