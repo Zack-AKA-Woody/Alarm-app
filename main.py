@@ -15,7 +15,7 @@ runtime = int(alarm_MM) + (1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or 10 or 11
 def loopSound():
     while True:
          now = time.localtime()
-         if now.tm_hour == int(alarm_HH) and now.tm_min == int(alarm_MM)or int(alarm_MM) + runtime:
+         if now.tm_hour == int(alarm_HH) and now.tm_min == int(alarm_MM) or int(alarm_MM) + runtime:
             playsound("C:/Users/Zack/Downloads/Siren_Noise.mp3", block=True)
             
 #ACTUAL ALARM
