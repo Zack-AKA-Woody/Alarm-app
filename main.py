@@ -3,15 +3,14 @@ import datetime
 import time
 import os
 import sys
+import threading
+from playsound import playsound
 
 #VARIABLES
 alarm_HH = 00
 alarm_MM = 00
 
 #ALARM SOUND
-import threading
-from playsound import playsound
-
 def loopSound():
     while True:
          now = time.localtime()
