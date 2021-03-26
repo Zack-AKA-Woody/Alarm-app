@@ -1,2 +1,2 @@
 # Alarm-app
-Alarm clock application--python
+Alarm clock application
